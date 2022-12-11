@@ -37,24 +37,79 @@
 
 
 
-function chaiTyarKro(callback){
-    setTimeout(()=>{
-        callback("chaityarha"); // call it
+// function chaiTyarKro(callback){
+//     setTimeout(()=>{
+//         callback("chaityarha"); // call it
 
-    },2000)
-}
+//     },2000)
+// }
 
-function paratatyarKro(callback){
-    setTimeout(()=>{
-        callback("parata Tyar Ha"); // call it
+// function paratatyarKro(callback){
+//     setTimeout(()=>{
+//         callback("parata Tyar Ha"); // call it
 
-    },2000)
-}
+//     },2000)
+// }
 
-chaiTyarKro(function(para1){
-    console.log(para1);
-    paratatyarKro(function(para2){
-        console.log(para2);
+// chaiTyarKro(function(para1){
+//     console.log(para1);
+//     paratatyarKro(function(para2){
+//         console.log(para2);
+//     })
+
+// })
+
+
+function chaiTyarKro(){
+    return new Promise((r,rej)=>{
+        setTimeout(()=>{
+            if(2==1){
+                r("bnao ge");
+            }
+            else{
+                rej("nai bna skte");
+            }
+        },2000)
     })
+    
+}
 
-})
+
+
+async function resultt(){
+    try{
+        let result=await chaiTyarKro();
+        console.log(result);
+    }
+    catch(er){
+        console.log(er);
+
+    }
+}
+
+resultt();
+// function rotTyarKro(){
+//     return new Promise((r,rej)=>{
+//         setTimeout(()=>{
+//             if(1==1){
+//                 r("roti bnao ge");
+//             }
+//             else{
+//                 rej("nai bna skte");
+//             }
+//         },2000)
+//     })
+    
+// }
+
+// chaiTyarKro().then((v)=>{
+//     console.log(v);
+//     return rotTyarKro(); // for other than
+
+// }).then((v)=>{
+//     console.log(v);
+
+// })
+// .catch((er)=>{
+//     console.log(er);
+// })
